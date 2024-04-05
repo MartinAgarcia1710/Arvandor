@@ -15,17 +15,16 @@ namespace Arvandor
         public int Gold { get; set; }
         public List<Item> OwnItems { get; set; }
         //-------------------------------//
+        public int ExpPoints { get; set; }
         public int PhysicalAttack { get; set; }
-        public int PhysicalDamage { get; set; }
         public int MagicAttack { get; set; }
-        public int MagicDamage { get; set; }
         public int PhysicalDefense { get; set; }
         public int MagicDefense { get; set;}
         public int LifePoints { get; set; }
         public int ManaPoints { get; set; }
         public string Nationality { get; set; }
         public int Speed { get; set; }
-        public int AttackSpeed { get; set;}
+       
 
         public Character()
         {
@@ -39,8 +38,12 @@ namespace Arvandor
         public virtual void levelUp()
         {
             this.Level += 1;
-            this.Life += 10;
-            this,Mana += 10;
+            this.LifePoints += 10;
+            this.ManaPoints += 10;
+            this.MagicAttack += 10;
+            this.PhysicalAttack += 10;
+            this.PhysicalDefense += 10;
+            this.MagicDefense += 10;
         }
 
     }
