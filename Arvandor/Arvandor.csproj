@@ -43,28 +43,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Beings.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="GamePlay.cs" />
-    <Compile Include="GiantSpider.cs" />
-    <Compile Include="Goblin.cs" />
-    <Compile Include="HealthPotion.cs" />
-    <Compile Include="Humans.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Orc.cs" />
-    <Compile Include="Potion.cs" />
-    <Compile Include="ManaPotion.cs" />
+    <Compile Include="GamePlay\Battle.cs" />
+    <Compile Include="GamePlay\Dice.cs" />
+    <Compile Include="EquippableItems\Armor.cs" />
+    <Compile Include="MainClasses\Beings.cs" />
+    <Compile Include="PJ%27s\Character.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="GamePlay\GamePlay.cs" />
+    <Compile Include="Enemies\GiantSpider.cs" />
+    <Compile Include="Enemies\Goblin.cs" />
+    <Compile Include="Items\HealthPotion.cs" />
+    <Compile Include="PJ%27s\Humans.cs" />
+    <Compile Include="MainClasses\Item.cs" />
+    <Compile Include="PJ%27s\Orc.cs" />
+    <Compile Include="Items\Potion.cs" />
+    <Compile Include="Items\ManaPotion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rat.cs" />
-    <Compile Include="SpiritTypes.cs" />
-    <Compile Include="Vampire.cs" />
-    <Compile Include="Werewolf.cs" />
-    <Compile Include="Zombie.cs" />
+    <Compile Include="Enemies\Rat.cs" />
+    <Compile Include="PJ%27s\SpiritTypes.cs" />
+    <Compile Include="PJ%27s\Vampire.cs" />
+    <Compile Include="EquippableItems\Weapons.cs" />
+    <Compile Include="PJ%27s\Werewolf.cs" />
+    <Compile Include="Enemies\Zombie.cs" />
+    <Compile Include="GamePlay\Shop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
