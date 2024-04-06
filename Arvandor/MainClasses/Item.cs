@@ -18,6 +18,10 @@ namespace Arvandor
             n = r.Next();
             return n; 
         }
+        public virtual void use()
+        {
+
+        }
         public Item()
         {
 

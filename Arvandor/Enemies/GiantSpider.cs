@@ -13,6 +13,8 @@ namespace Arvandor
             this.name = "Giant Spider";
             this.PhysicalDefense += 10;
             this.MagicDefense += 10;
+            this.Exp = 15;
+            this.Gold = 5;
             
         }
     }

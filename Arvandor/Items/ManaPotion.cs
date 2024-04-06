@@ -8,6 +8,7 @@ namespace Arvandor
 {
     internal class ManaPotion : Potion
     {
+        public int add { get; set; } = 25;
         public ManaPotion() : base() 
         {
             this.ID = 1;
@@ -15,6 +16,9 @@ namespace Arvandor
             this.Color = "Blue";
         }
 
-        
+        public override void use()
+        {
+            
+        }
     }
 }

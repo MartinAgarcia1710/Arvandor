@@ -16,6 +16,7 @@ namespace Arvandor
             this.MagicDefense += 5;
             this.Speed += 5;
             this.Life = this.LifePoints;
+            
             this.Mana = this.ManaPoints;
         }
         public override void levelUp()
@@ -25,6 +26,10 @@ namespace Arvandor
             this.MagicAttack += 5;
             this.MagicDefense += 5;
             this.Speed += 5;
+        }
+        public override void winBattle(int exp, int gold)
+        {
+            base.winBattle(exp, gold);
         }
     }
 }

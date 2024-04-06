@@ -9,6 +9,8 @@ namespace Arvandor
     internal class Enemy : Character
     {
         public string name;
+        public int Exp { get; set; }
+        public int Gold { get; set; }
 
         public Enemy() : base()
         {

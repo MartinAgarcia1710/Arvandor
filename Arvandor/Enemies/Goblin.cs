@@ -13,7 +13,8 @@ namespace Arvandor
             this.name = "Goblin";
             this.LifePoints += 10;
             this.PhysicalAttack += 10;
-
+            this.Exp = 25;
+            this.Gold = 5;
         }
     }
 }

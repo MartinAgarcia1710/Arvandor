@@ -12,7 +12,8 @@ namespace Arvandor
         {
             this.name = "Zombie";
             this.LifePoints += 20;
-
+            this.Exp = 40;
+            this.Gold = 30;
         }
     }
 }

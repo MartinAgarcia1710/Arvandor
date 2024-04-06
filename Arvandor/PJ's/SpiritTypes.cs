@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Activation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,8 +15,9 @@ namespace Arvandor
         public string SpiritClass { get; set; }
         public SpiritTypes() 
         {
-            this.LifePoints = 30;
-            this.ManaPoints = 10;
+            this.OwnItems = new List<Item>();
+            this.LifePoints = 3000;
+            this.ManaPoints = 20;
             this.MagicDefense = 10;
             this.MagicAttack = 10;
             this.PhysicalAttack = 10;
@@ -25,6 +27,11 @@ namespace Arvandor
             this.Life = this.LifePoints;
             this.Mana = this.ManaPoints;
             this.PointsToNextLevel = this.Level * 50;
+            ManaPotion mp = new ManaPotion();
+            HealthPotion hp = new HealthPotion();
+            this.OwnItems.Add(mp);
+            this.OwnItems.Add(hp);
+            
         }
         public virtual void levelUp()
         {
@@ -35,6 +42,59 @@ namespace Arvandor
             this.PhysicalAttack += 10;
             this.PhysicalDefense += 10;
             this.MagicDefense += 10;
+        }
+        public virtual void useItem()
+        {
+            int op;
+            int n = 1;
+            Console.WriteLine("Items");
+            foreach (Item item in this.OwnItems)
+            {
+                Console.WriteLine(n + ". " + item.Name);
+                n++;
+            }
+            op = int.Parse(Console.ReadLine());
+
+            switch (this.OwnItems[op - 1].ID)
+            {
+                case 1:
+                    this.manaRech();
+                    break;
+                case 2:
+                    this.healthRech();
+                    break;
+                case 3:
+                    break;
+            }
+        }
+        public void manaRech()
+        {
+            this.Mana += 25;
+            if(this.Mana > this.ManaPoints) 
+            {
+                this.Mana = this.ManaPoints;
+            }
+        }
+
+        public void healthRech()
+        {
+            this.Life += 25;
+            if (this.Life > this.LifePoints)
+            {
+                this.Life = this.LifePoints;
+            }
+        }
+        public virtual void winBattle(int exp, int gold)
+        {
+            this.ExpPoints += exp;
+            if(this.ExpPoints > this.PointsToNextLevel)
+            {
+                this.levelUp();
+                this.PointsToNextLevel = this.Level * 50;
+                this.ExpPoints = 0;
+            }
+            this.Gold += gold;
+
         }
     }
 }

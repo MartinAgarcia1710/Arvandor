@@ -12,7 +12,7 @@ namespace Arvandor
         public int Level { get; set; }
         public int Life { get; set; }
         public int Mana { get; set; }
-        
+        public int KillCount { get; set; }
         public List<Item> OwnItems { get; set; }
         //-------------------------------//
         
@@ -46,7 +46,18 @@ namespace Arvandor
         {
             this.Life -= damage;
         }
+        public void showStandings()
+        {
+            Console.WriteLine(this.Name);
+            Console.WriteLine("Level: " + this.Level);
+            Console.WriteLine("Phisical attack: " + this.PhysicalAttack);
+            Console.WriteLine("Magical attack: " + this.MagicAttack);
+            Console.WriteLine("Phisical defence" + this.PhysicalDefense);
+            Console.WriteLine("Magical defence: " + this.MagicDefense);
+            Console.WriteLine("Speed: " + this.Speed);
+            Console.WriteLine("Enemies kill: " + this.KillCount);
 
-
+        }
+        
     }
 }

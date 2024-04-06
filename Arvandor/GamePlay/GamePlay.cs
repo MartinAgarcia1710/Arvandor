@@ -20,7 +20,7 @@ namespace Arvandor
         public void head()
         {
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Player: " + this.player.Name + "|" + this.player.SpiritClass);
+            Console.WriteLine("Player: " + this.player.Name + "|" + this.player.SpiritClass + "Lvl: " + this.player.Level);
             Console.WriteLine("Life: " + this.player.Life + "/" + this.player.LifePoints);
             Console.WriteLine("Mana: " + this.player.Mana + "/" + this.player.ManaPoints);
             Console.WriteLine("Gold: " + this.player.Gold);
@@ -57,6 +57,7 @@ namespace Arvandor
             {
                 case 1:
                     this.player = new Vampire();
+                    
                     break;
                 case 2:
                     this.player = new Werewolf();
@@ -145,6 +146,7 @@ namespace Arvandor
                 {
                     Console.WriteLine("Enemy die");
                     bat = false;
+                    this.player.winBattle(e1.Exp, e1.Gold);
                     return;
                 }
 
@@ -157,6 +159,7 @@ namespace Arvandor
                 if (this.player.Life <= 0)
                 {
                     Console.WriteLine("You die");
+                    System.Environment.Exit(-1);
                     bat = false;
                     return;
                 }
@@ -170,17 +173,17 @@ namespace Arvandor
             Console.Clear();
             head();
             int op;
+            while(true) { 
             Console.WriteLine("Menu");
             Console.WriteLine("1. Battle\n2. Items\n3. Boss\n4. Save\n5. Quit");
             op = int.Parse(Console.ReadLine());
-
             switch (op)
             {
                 case 1:
                     randomBattle();
                     break;
                 case 2:
-                    listItems();
+                    this.player.useItem();
                     break;
                 case 3:
                     break;
@@ -188,6 +191,7 @@ namespace Arvandor
                     break;
                 case 5:
                     break;
+            }
             }
         }
     }

@@ -14,6 +14,8 @@ namespace Arvandor
             this.name = "Rat";
             this.PhysicalAttack += 10;
             this.PhysicalAttack += 10;
+            this.Exp = 70;
+            this.Gold = 10;
         }
     }
 }
