@@ -8,10 +8,11 @@ namespace Arvandor
 {
     internal class GiantSpider : Enemy
     {
-        public GiantSpider(string name)
+        public GiantSpider()
         {
-            this.name = name;
-            
+            this.name = "Giant Spider";
+            this.PhysicalDefense += 10;
+            this.MagicDefense += 10;
             
         }
     }

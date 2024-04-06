@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Arvandor
 {
-    internal class Zombie : Enemy
+    internal class HealthPotion : Potion
     {
-        public Zombie()
-        {
-            this.name = "Zombie";
-            this.LifePoints += 20;
-
-        }
     }
 }

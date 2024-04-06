@@ -9,5 +9,18 @@ namespace Arvandor
     internal class Item
     {
         public string Name { get; set; }
+        public int ID { get; set; }
+
+        public int getItem(int n)
+        {
+            
+            Random r = new Random();
+            n = r.Next();
+            return n; 
+        }
+        public Item()
+        {
+
+        }
     }
 }

@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace Arvandor
 {
-    internal class Vampire : Character
+    internal class Vampire : SpiritTypes
     {
-        public override string hello()
+        public Vampire() : base()
         {
-            return "Hola soy un vampiro";
+            this.SpiritClass = "Vampire";
+            this.ManaPoints += 5;
+            this.MagicAttack += 5;
+            this.MagicDefense += 5;
+            this.Speed += 5;
+            this.Life = this.LifePoints;
+            this.Mana = this.ManaPoints;
+        }
+        public override void levelUp()
+        {
+            base.levelUp();
+            this.ManaPoints += 5;
+            this.MagicAttack += 5;
+            this.MagicDefense += 5;
+            this.Speed += 5;
         }
     }
 }

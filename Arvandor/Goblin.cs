@@ -8,9 +8,12 @@ namespace Arvandor
 {
     internal class Goblin : Enemy
     {
-        public Goblin(string name)
+        public Goblin() : base()
         {
-            this.name = name;
+            this.name = "Goblin";
+            this.LifePoints += 10;
+            this.PhysicalAttack += 10;
+
         }
     }
 }

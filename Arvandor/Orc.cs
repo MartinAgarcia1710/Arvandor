@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace Arvandor
 {
-    internal class Orc : Character
+    internal class Orc : SpiritTypes
     {
         public Orc() : base() 
         {
+            this.SpiritClass = "Orc";
             this.LifePoints += 10;
             this.PhysicalAttack += 10;
             this.PhysicalDefense += 10;
+            this.Life = this.LifePoints;
+            this.Mana = this.ManaPoints;
         }
         public override void levelUp() 
         {

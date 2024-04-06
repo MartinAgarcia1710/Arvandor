@@ -9,9 +9,11 @@ namespace Arvandor
 {
     internal class Rat : Enemy
     {
-        public Rat(string name)
+        public Rat()
         {
-            this.name = name;
+            this.name = "Rat";
+            this.PhysicalAttack += 10;
+            this.PhysicalAttack += 10;
         }
     }
 }
