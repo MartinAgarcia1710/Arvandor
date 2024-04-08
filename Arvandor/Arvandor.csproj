@@ -47,6 +47,7 @@
     <Compile Include="GamePlay\Dice.cs" />
     <Compile Include="EquippableItems\Armor.cs" />
     <Compile Include="MainClasses\Beings.cs" />
+    <Compile Include="Merchant.cs" />
     <Compile Include="PJ%27s\Character.cs" />
     <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="GamePlay\GamePlay.cs" />

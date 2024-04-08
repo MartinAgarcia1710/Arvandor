@@ -8,5 +8,6 @@ namespace Arvandor
 {
     internal class Shop
     {
+
     }
 }

@@ -33,7 +33,13 @@ namespace Arvandor
             return it;
         }
         
+        public int getRandomEnemy(int count)
+        {
+            Random rand = new Random();
+            int x = rand.Next(count);
 
+            return x;
+        }
         public int getLevel(int level)
         {
             if(level < 3)

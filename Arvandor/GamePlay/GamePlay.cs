@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
+using System.Media;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -103,6 +106,44 @@ namespace Arvandor
             op = int.Parse(Console.ReadLine());
 
         }
+        public void battle()
+        {
+            
+            Battle b1 = new Battle();
+            Enemy e1 = new Enemy();
+            bool t = b1.battleOrder(player, e1);
+            e1 = enemyList[e1.getRandomEnemy(enemyList.Count)];
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("BATTLE");
+            Console.WriteLine("You fight with " + e1.name);
+            Console.ResetColor();
+            while (true)
+            {
+
+                if(t)
+                {
+                    b1.battleMenu(this.player, e1);
+                    t = false;
+                    if(e1.Life <= 0)
+                    {
+                        Console.WriteLine("Enemy die");
+                        this.player.winBattle(e1.Exp, e1.Gold);
+                        return;
+                    }
+                }
+                else
+                {
+                    b1.enemyBattle(this.player, e1);
+                    t = false;
+                    if(this.player.Life <= 0)
+                    {
+                        Console.WriteLine(this.player.Name + " die");
+                        return;
+                    }
+                }
+            }
+        }
+        /*
         public void randomBattle()
         {
             int[] dice = new int[2];
@@ -168,6 +209,7 @@ namespace Arvandor
                 Console.ReadKey();
             }
         }
+        */
         public void stageMenu()
         {
             Console.Clear();
@@ -180,7 +222,8 @@ namespace Arvandor
             switch (op)
             {
                 case 1:
-                    randomBattle();
+                        battle();
+                    //randomBattle();
                     break;
                 case 2:
                     this.player.useItem();
