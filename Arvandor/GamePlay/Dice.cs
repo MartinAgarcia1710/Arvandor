@@ -8,12 +8,18 @@ namespace Arvandor
 {
     internal class Dice
     {
+        private Random rand;
         public int valueDice { get; set; }
+
+        public Dice()
+        {
+            rand = new Random();
+        }
+
         public int randomDice(int c)
         {
-            Random rand = new Random();
-            this.valueDice = rand.Next(c);
-            return this.valueDice + 1;
+            return rand.Next(1, c + 1);
+            
         }
         public int attackDice()
         {

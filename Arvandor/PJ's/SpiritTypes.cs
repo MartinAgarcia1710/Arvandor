@@ -86,6 +86,8 @@ namespace Arvandor
         }
         public virtual void winBattle(int exp, int gold)
         {
+            Console.WriteLine("Expe won: " + exp);
+            Console.WriteLine("Gold won: " + gold);
             this.ExpPoints += exp;
             if(this.ExpPoints > this.PointsToNextLevel)
             {

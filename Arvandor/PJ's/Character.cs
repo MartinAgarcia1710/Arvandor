@@ -45,6 +45,7 @@ namespace Arvandor
         public void getDamage(int damage)
         {
             this.Life -= damage;
+            Console.WriteLine("Damage: " + damage);
         }
         public void showStandings()
         {

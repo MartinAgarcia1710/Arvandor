@@ -23,7 +23,7 @@ namespace Arvandor
         public void head()
         {
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Player: " + this.player.Name + "|" + this.player.SpiritClass + "Lvl: " + this.player.Level);
+            Console.WriteLine("Player: " + this.player.Name + "|" + this.player.SpiritClass + " |Lvl: " + this.player.Level);
             Console.WriteLine("Life: " + this.player.Life + "/" + this.player.LifePoints);
             Console.WriteLine("Mana: " + this.player.Mana + "/" + this.player.ManaPoints);
             Console.WriteLine("Gold: " + this.player.Gold);
@@ -108,22 +108,33 @@ namespace Arvandor
         }
         public void battle()
         {
-            
+            int t = 0;
             Battle b1 = new Battle();
             Enemy e1 = new Enemy();
-            bool t = b1.battleOrder(player, e1);
             e1 = enemyList[e1.getRandomEnemy(enemyList.Count)];
+            bool tu = b1.battleOrder(this.player, e1);
+            head();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("BATTLE");
             Console.WriteLine("You fight with " + e1.name);
             Console.ResetColor();
-            while (true)
+            if(tu)
             {
-
-                if(t)
+                t = 0;
+            }
+            else
+            {
+                t = 1;
+            }
+            while (true)
+            {  
+                head();
+                if(t % 2 == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA PERSONAJE");
+                    Console.ResetColor();
                     b1.battleMenu(this.player, e1);
-                    t = false;
                     if(e1.Life <= 0)
                     {
                         Console.WriteLine("Enemy die");
@@ -133,14 +144,18 @@ namespace Arvandor
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA ENEMIGO");
+                    Console.ResetColor();
                     b1.enemyBattle(this.player, e1);
-                    t = false;
                     if(this.player.Life <= 0)
                     {
                         Console.WriteLine(this.player.Name + " die");
                         return;
                     }
+                Console.ReadKey();
                 }
+                t++;
             }
         }
         /*

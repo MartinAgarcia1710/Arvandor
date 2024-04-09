@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Arvandor
@@ -9,22 +10,30 @@ namespace Arvandor
     internal class Battle
     {
         public Dice battleDice { get; set; }
+        public Dice battleDice2 { get; set; }
 
         public void attackCommand(SpiritTypes player, Enemy enemy, bool playerAttack)
         {
+            int d;
             if(playerAttack)
             {
                 Console.WriteLine(player.Name + " attack!");
+                d = this.battleDice.attackDice();
+                Console.WriteLine("Dice: " + d);
                 enemy.getDamage(player.PhisicalAttack(this.battleDice.attackDice()));
+                
                 if(battleDice.criticDice() >= 10)
                 {
+                    
                     Console.WriteLine("Critic Atack!");
                     enemy.getDamage(10);
                 }
             }
             else
             {
-                Console.WriteLine(enemy.name + " attakc!");
+                Console.WriteLine(enemy.name + " attack!");
+                d = this.battleDice.attackDice();
+                Console.WriteLine("Dice: " + d);
                 player.getDamage(enemy.PhisicalAttack(this.battleDice.attackDice()));
                 if (battleDice.criticDice() >= 10)
                 {
@@ -61,27 +70,45 @@ namespace Arvandor
         {
             if (playerdefence)
             {
+                Console.WriteLine(player.Name + " DEFEND");
                 player.PhysicalDefense += player.PhysicalDefense / 2;
             }
             else
             {
+                Console.WriteLine(enemy.name + " DEFEND");
                 enemy.PhysicalDefense += enemy.PhysicalDefense / 2;
             }
         }
         public bool battleOrder(SpiritTypes player, Enemy enemy)
         {
-            int[] di = new int[2];
-            this.battleDice = new Dice;
+            //Problema con la creacion de los dados, al crear uno solo con new la semilla es la misma y por ende el mismo numero random
+            //por lo que decidi agregar otro dado.
+            int d1, d2;
+            battleDice = new Dice();
             Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine("Shift draw");
             Console.ResetColor();
+            /*
             for(int x = 0; x < 2; x++)
             {
                 di[x] = this.battleDice.randomDice(6);
             }
-            Console.WriteLine(player.Name + ": " + di[0]);
-            Console.WriteLine(enemy.name + ": " + di[1]);
-            if (di[0] > di[1])
+            */
+            d1 = battleDice.randomDice(6);
+            Console.WriteLine(player.Name + ": " + d1);
+            Thread.Sleep(5000);
+            battleDice2 = new Dice();
+            d2 = battleDice2.randomDice(6);
+            
+            while (di[0] == di[1])
+            {
+                Console.WriteLine("Equals, again");
+                d1 = battleDice.randomDice(6);
+                d2 = battleDice2.randomDice(6);
+            }
+            
+            Console.WriteLine(enemy.name + ": " + d2);
+            if (d1 > d2)
             {
                 Console.WriteLine(player.Name + " Start");
                 return true;
