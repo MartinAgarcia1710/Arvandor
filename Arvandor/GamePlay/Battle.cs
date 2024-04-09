@@ -88,19 +88,14 @@ namespace Arvandor
             Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine("Shift draw");
             Console.ResetColor();
-            /*
-            for(int x = 0; x < 2; x++)
-            {
-                di[x] = this.battleDice.randomDice(6);
-            }
-            */
+            
             d1 = battleDice.randomDice(6);
             Console.WriteLine(player.Name + ": " + d1);
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             battleDice2 = new Dice();
             d2 = battleDice2.randomDice(6);
             
-            while (di[0] == di[1])
+            while (d1 == d2)
             {
                 Console.WriteLine("Equals, again");
                 d1 = battleDice.randomDice(6);

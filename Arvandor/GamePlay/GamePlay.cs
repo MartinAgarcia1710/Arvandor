@@ -153,7 +153,7 @@ namespace Arvandor
                         Console.WriteLine(this.player.Name + " die");
                         return;
                     }
-                Console.ReadKey();
+                
                 }
                 t++;
             }

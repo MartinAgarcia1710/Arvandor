@@ -59,9 +59,11 @@ namespace Arvandor
             {
                 case 1:
                     this.manaRech();
+                    this.OwnItems.RemoveAt(op - 1);
                     break;
                 case 2:
                     this.healthRech();
+                    this.OwnItems.RemoveAt(op - 1);
                     break;
                 case 3:
                     break;
