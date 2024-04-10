@@ -10,6 +10,8 @@ namespace Arvandor
     {
         public string Name { get; set; }
         public int ID { get; set; }
+        public int SellPrice { get; set; }
+        public int BuyPrice { get; set; }
 
         public int getItem(int n)
         {

@@ -14,6 +14,8 @@ namespace Arvandor
             this.ID = 1;
             this.Name = "Mana potion";
             this.Color = "Blue";
+            this.SellPrice = 25;
+            this.BuyPrice = 50;
         }
 
         public override void use()

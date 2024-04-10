@@ -158,73 +158,7 @@ namespace Arvandor
                 t++;
             }
         }
-        /*
-        public void randomBattle()
-        {
-            int[] dice = new int[2];
-            Random rand = new Random();
-            int getEnemy = rand.Next(4);
-            Enemy e1 = new Enemy();
-            e1 = enemyList[getEnemy];
-            Console.WriteLine("You fight with " + e1.name + " Level: " + e1.Level);
-            Console.WriteLine("Draw turn");
-
-            for (int x = 0; x < 2; x++)
-            {
-                dice[x] = rand.Next(6) + 1;
-            }
-            
-            while (dice[0] == dice[1])
-            {
-                Console.WriteLine("SON IGUALES");
-                for (int x = 0; x < 2; x++)
-                {
-                    dice[x] = rand.Next(6) + 1;
-                }
-            }
-            
-            Console.WriteLine("Player: " + dice[0]);
-            Console.WriteLine(e1.name + ": " + dice[1]);
-            
-            bool bat = true;
-            while(bat) 
-            {
-                Console.Clear();
-                head();
-                Console.WriteLine("START");
-                Console.WriteLine(this.player.Name + " atack!");
-                dice[0] = rand.Next(6) + 1;
-                Console.WriteLine("Dice:" + dice[0]);
-                int dam = this.player.PhisicalAttack(dice[0]);
-                Console.WriteLine("Damage: " + dam);
-                e1.getDamage(dam);
-                if(e1.Life <= 0)
-                {
-                    Console.WriteLine("Enemy die");
-                    bat = false;
-                    this.player.winBattle(e1.Exp, e1.Gold);
-                    return;
-                }
-
-                Console.WriteLine(e1.name + " atack!");
-                dice[1] = rand.Next(6) + 1;
-                Console.WriteLine("Dice:" + dice[1]);
-                dam = e1.PhisicalAttack(dice[1]);
-                Console.WriteLine("Damage: " + dam);
-                this.player.getDamage(dam);
-                if (this.player.Life <= 0)
-                {
-                    Console.WriteLine("You die");
-                    System.Environment.Exit(-1);
-                    bat = false;
-                    return;
-                }
-
-
-                Console.ReadKey();
-            }
-        }
-        */
+        
         public void stageMenu()
         {
             Console.Clear();
@@ -232,13 +166,12 @@ namespace Arvandor
             int op;
             while(true) { 
             Console.WriteLine("Menu");
-            Console.WriteLine("1. Battle\n2. Items\n3. Boss\n4. Save\n5. Quit");
+            Console.WriteLine("1. Battle\n2. Items\n3. Boss\n4. Shop\n5. Save\n6. Quit");
             op = int.Parse(Console.ReadLine());
             switch (op)
             {
                 case 1:
                         battle();
-                    //randomBattle();
                     break;
                 case 2:
                     this.player.useItem();
@@ -248,6 +181,8 @@ namespace Arvandor
                 case 4:
                     break;
                 case 5:
+                    break;
+                case 6:
                     break;
             }
             }

@@ -14,6 +14,8 @@ namespace Arvandor
             this.ID = 2;
             this.Name = "Health potion";
             this.Color = "Red";
+            this.SellPrice = 25;
+            this.BuyPrice = 50;
         }
     }
 }
