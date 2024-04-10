@@ -18,6 +18,11 @@ namespace Arvandor
             this.Life = this.LifePoints;
             this.Mana = this.ManaPoints;
         }
+        public override void stats()
+        {
+            Console.WriteLine(this.SpiritClass);
+            base.stats();
+        }
         public override void levelUp()
         {
             base.levelUp();

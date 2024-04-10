@@ -12,6 +12,7 @@ namespace Arvandor
 {
     internal class GamePlay
     {
+        private Shop shop = new Shop();
         private SpiritTypes player;
         private List<Enemy> enemyList = new List<Enemy>() { 
             new GiantSpider(),
@@ -59,8 +60,7 @@ namespace Arvandor
             switch (op)
             {
                 case 1:
-                    this.player = new Vampire();
-                    
+                    this.player = new Vampire();       
                     break;
                 case 2:
                     this.player = new Werewolf();
@@ -69,8 +69,18 @@ namespace Arvandor
                     this.player = new Orc();
                     break;
             }
-            Console.WriteLine("What's your name?");
-            this.player.Name = Console.ReadLine();
+            this.player.stats();
+            Console.WriteLine("Press 'Y' to confirm " + this.player.SpiritClass);
+            char con = char.Parse(Console.ReadLine());
+            if(con == 'Y' || con == 'y')
+            {
+                Console.WriteLine("What's your name?");
+                this.player.Name = Console.ReadLine();
+            }
+            else
+            {
+                selectCharacter();
+            }
         }
 
         public void tutorial()
@@ -108,11 +118,13 @@ namespace Arvandor
         }
         public void battle()
         {
+            int round = 1;
             int t = 0;
             Battle b1 = new Battle();
             Enemy e1 = new Enemy();
             e1 = enemyList[e1.getRandomEnemy(enemyList.Count)];
             bool tu = b1.battleOrder(this.player, e1);
+            bool swich = false;
             head();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("BATTLE");
@@ -125,16 +137,21 @@ namespace Arvandor
             else
             {
                 t = 1;
+                swich = true;
             }
             while (true)
             {  
                 head();
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Round " + round);
+                Console.ResetColor();
                 if(t % 2 == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("JUEGA PERSONAJE");
                     Console.ResetColor();
                     b1.battleMenu(this.player, e1);
+                    swich = true;
                     if(e1.Life <= 0)
                     {
                         Console.WriteLine("Enemy die");
@@ -142,23 +159,33 @@ namespace Arvandor
                         return;
                     }
                 }
-                else
-                {
+                //else
+                //{
+                if(swich) {     
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("JUEGA ENEMIGO");
                     Console.ResetColor();
                     b1.enemyBattle(this.player, e1);
+                    swich = false;
                     if(this.player.Life <= 0)
                     {
                         Console.WriteLine(this.player.Name + " die");
                         return;
                     }
-                
                 }
+                //}
                 t++;
+                round++;
             }
         }
-        
+        public void bossBattle(SpiritTypes player)
+        {
+            Battle b1 = new Battle();
+            Enemy e1 = new Enemy();
+            e1 = b1.bossSelect(player);
+            Console.WriteLine("You fight with " + e1.name);
+
+        }
         public void stageMenu()
         {
             Console.Clear();
@@ -177,13 +204,15 @@ namespace Arvandor
                     this.player.useItem();
                     break;
                 case 3:
+                    bossBattle(this.player);
                     break;
                 case 4:
+                    this.shop.shopMenu(player);
                     break;
                 case 5:
                     break;
                 case 6:
-                    break;
+                    return;
             }
             }
         }

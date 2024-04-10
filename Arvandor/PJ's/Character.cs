@@ -25,12 +25,25 @@ namespace Arvandor
         
         public int Speed { get; set; }
        
-
+        //-------- Constructor-------//
         public Character()
         {
             this.Level = 1;
         }
         
+        public virtual void stats()
+        {
+            Console.WriteLine("Stats ");
+            Console.WriteLine("Physical attack " + this.PhysicalAttack);
+            Console.WriteLine("Magical attack " + this.MagicAttack);
+            Console.WriteLine("Physical defense " + this.PhysicalDefense);
+            Console.WriteLine("Magical defense " + this.MagicDefense);
+            Console.WriteLine("Speed " + this.Speed);
+            Console.WriteLine("Mana " + this.Mana);
+            Console.WriteLine("Life " + this.Life);
+
+        }
+
         public int PhisicalAttack(int dice)
         {
             int damage = (this.PhysicalAttack + dice) / 2;

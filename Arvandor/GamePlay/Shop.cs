@@ -90,8 +90,12 @@ namespace Arvandor
                     Console.WriteLine(co + ". " + item.Name + "...........$" + item.SellPrice);
                     co++;
                 }
-                player.OwnItems.RemoveAt(op = int.Parse(Console.ReadLine()) - 1);
-                player.Gold += player.OwnItems[op - 1].SellPrice;
+                op = int.Parse (Console.ReadLine());
+                int ig = player.OwnItems[op - 1].SellPrice;
+                player.OwnItems.RemoveAt(op - 1);
+                player.Gold += ig;
+                return;
+                //player.Gold += player.OwnItems[op - 1].SellPrice;
 
                 
             }

@@ -13,8 +13,10 @@ namespace Arvandor
         public int ExpPoints { get; set; }
         public int PointsToNextLevel { get; set; }
         public string SpiritClass { get; set; }
+        public int bossCounter { get; set; }
         public SpiritTypes() 
         {
+            this.bossCounter = 0;
             this.OwnItems = new List<Item>();
             this.LifePoints = 3000;
             this.ManaPoints = 20;
@@ -32,6 +34,10 @@ namespace Arvandor
             this.OwnItems.Add(mp);
             this.OwnItems.Add(hp);
             
+        }
+        public virtual void transform()
+        {
+
         }
         public virtual void levelUp()
         {

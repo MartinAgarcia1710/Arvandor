@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,6 +13,28 @@ namespace Arvandor
         public Dice battleDice { get; set; }
         public Dice battleDice2 { get; set; }
 
+        public Enemy bossSelect(SpiritTypes player)
+        {
+            Enemy boss = new Enemy();
+            switch(player.bossCounter)
+            {
+                case 0:
+                    //boss = new StoneFace();
+                    player.bossCounter++;
+                    return new StoneFace();
+                    
+                case 1:
+                    //boss = new SilverWitch();
+                    player.bossCounter++;
+                    return new SilverWitch();
+                case 2:
+                    //new Andariel();
+                    player.bossCounter++;
+                    return new Andariel();
+            }
+            return null;
+
+        }
         public void attackCommand(SpiritTypes player, Enemy enemy, bool playerAttack)
         {
             int d;
