@@ -15,7 +15,8 @@ namespace Arvandor
             this.MagicDefense += 10;
             this.Exp = 15;
             this.Gold = 5;
-            
+            this.Life = this.LifePoints;
+
         }
     }
 }

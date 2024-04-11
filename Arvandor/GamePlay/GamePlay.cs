@@ -31,6 +31,13 @@ namespace Arvandor
             Console.WriteLine("Experience: " + this.player.ExpPoints + "/" + this.player.PointsToNextLevel);
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
         }
+        public void enemyHead(Enemy enemy)
+        {      
+            Console.WriteLine("Enemy: " + enemy.name + "| Lvl: " + enemy.Level);
+            Console.WriteLine("Life: " + enemy.Life + "/" + enemy.LifePoints);
+            Console.WriteLine("Mana: " + enemy.Mana + "/" + enemy.ManaPoints);
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------");
+        }
         public void intro()
         {
             Console.WriteLine("Arvandor is in danger. Evil forces came from another world to destroy everything.");
@@ -124,8 +131,8 @@ namespace Arvandor
             Enemy e1 = new Enemy();
             e1 = enemyList[e1.getRandomEnemy(enemyList.Count)];
             bool tu = b1.battleOrder(this.player, e1);
-            bool swich = false;
             head();
+            enemyHead(e1);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("BATTLE");
             Console.WriteLine("You fight with " + e1.name);
@@ -137,54 +144,149 @@ namespace Arvandor
             else
             {
                 t = 1;
-                swich = true;
             }
+
             while (true)
             {  
                 head();
+                enemyHead(e1);
                 Console.BackgroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Round " + round);
                 Console.ResetColor();
+                
                 if(t % 2 == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("JUEGA PERSONAJE");
                     Console.ResetColor();
                     b1.battleMenu(this.player, e1);
-                    swich = true;
                     if(e1.Life <= 0)
                     {
                         Console.WriteLine("Enemy die");
                         this.player.winBattle(e1.Exp, e1.Gold);
                         return;
                     }
-                }
-                //else
-                //{
-                if(swich) {     
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("JUEGA ENEMIGO");
                     Console.ResetColor();
                     b1.enemyBattle(this.player, e1);
-                    swich = false;
-                    if(this.player.Life <= 0)
+                    if (this.player.Life <= 0)
                     {
                         Console.WriteLine(this.player.Name + " die");
                         return;
                     }
                 }
-                //}
-                t++;
+                else
+                {
+                    
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA ENEMIGO");
+                    Console.ResetColor();
+                    b1.enemyBattle(this.player, e1);
+                    if(this.player.Life <= 0)
+                    {
+                        Console.WriteLine(this.player.Name + " die");
+                        return;
+                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA PERSONAJE");
+                    Console.ResetColor();
+                    b1.battleMenu(this.player, e1);
+                    if (e1.Life <= 0)
+                    {
+                        Console.WriteLine("Enemy die");
+                        this.player.winBattle(e1.Exp, e1.Gold);
+                        return;
+                    }
+                }
+                Console.WriteLine("Round end, press to continue");
+                Console.ReadKey();
+                Console.Clear();
                 round++;
             }
         }
         public void bossBattle(SpiritTypes player)
         {
+            int t = 0;
+            int round = 1;
             Battle b1 = new Battle();
             Enemy e1 = new Enemy();
             e1 = b1.bossSelect(player);
             Console.WriteLine("You fight with " + e1.name);
+            bool tu = b1.battleOrder(this.player, e1);
+            head();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("BATTLE");
+            Console.WriteLine("You fight with " + e1.name);
+            Console.ResetColor();
+            if (tu)
+            {
+                t = 0;
+            }
+            else
+            {
+                t = 1;
+            }
 
+            while (true)
+            {
+                head();
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Round " + round);
+                Console.ResetColor();
+
+                if (t % 2 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA PERSONAJE");
+                    Console.ResetColor();
+                    b1.battleMenu(this.player, e1);
+                    if (e1.Life <= 0)
+                    {
+                        Console.WriteLine("Enemy die");
+                        this.player.winBattle(e1.Exp, e1.Gold);
+                        this.player.bossCounter++; 
+                        return;
+                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA ENEMIGO");
+                    Console.ResetColor();
+                    b1.enemyBattle(this.player, e1);
+                    if (this.player.Life <= 0)
+                    {
+                        Console.WriteLine(this.player.Name + " die");
+                        return;
+                    }
+                }
+                else
+                {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA ENEMIGO");
+                    Console.ResetColor();
+                    b1.enemyBattle(this.player, e1);
+                    if (this.player.Life <= 0)
+                    {
+                        Console.WriteLine(this.player.Name + " die");
+                        return;
+                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("JUEGA PERSONAJE");
+                    Console.ResetColor();
+                    b1.battleMenu(this.player, e1);
+                    if (e1.Life <= 0)
+                    {
+                        Console.WriteLine("Enemy die");
+                        this.player.winBattle(e1.Exp, e1.Gold);
+                        this.player.bossCounter++;
+                        return;
+                    }
+                }
+                Console.WriteLine("Round end, press to continue");
+                Console.ReadKey();
+                Console.Clear();
+                round++;
+            }
         }
         public void stageMenu()
         {

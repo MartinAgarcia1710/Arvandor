@@ -13,7 +13,7 @@ namespace Arvandor
         {
             int op;
             GamePlay game = new GamePlay();
-            
+
             Console.WriteLine("Arvandor");
             Console.WriteLine("\t    Arshaalth's Quest");
 

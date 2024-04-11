@@ -33,14 +33,18 @@ namespace Arvandor
         
         public virtual void stats()
         {
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(this.Name);
+            Console.ResetColor();
             Console.WriteLine("Stats ");
+            Console.WriteLine("Level " + this.Level);
             Console.WriteLine("Physical attack " + this.PhysicalAttack);
             Console.WriteLine("Magical attack " + this.MagicAttack);
             Console.WriteLine("Physical defense " + this.PhysicalDefense);
             Console.WriteLine("Magical defense " + this.MagicDefense);
             Console.WriteLine("Speed " + this.Speed);
-            Console.WriteLine("Mana " + this.Mana);
-            Console.WriteLine("Life " + this.Life);
+            Console.WriteLine("Mana " + this.ManaPoints);
+            Console.WriteLine("Life " + this.LifePoints);
 
         }
 

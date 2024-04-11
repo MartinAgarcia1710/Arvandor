@@ -15,6 +15,7 @@ namespace Arvandor
             this.PhysicalAttack += 10;
             this.Exp = 25;
             this.Gold = 5;
+            this.Life = this.LifePoints;
         }
     }
 }

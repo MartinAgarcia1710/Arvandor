@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Andariel.cs" />
+    <Compile Include="Boss\Andariel.cs" />
     <Compile Include="GamePlay\Battle.cs" />
     <Compile Include="GamePlay\Dice.cs" />
     <Compile Include="EquippableItems\Armor.cs" />
+    <Compile Include="GameSaveLoad.cs" />
     <Compile Include="MainClasses\Beings.cs" />
     <Compile Include="Merchant.cs" />
     <Compile Include="PJ%27s\Character.cs" />
@@ -69,8 +70,8 @@
     <Compile Include="PJ%27s\Werewolf.cs" />
     <Compile Include="Enemies\Zombie.cs" />
     <Compile Include="GamePlay\Shop.cs" />
-    <Compile Include="SilverWitch.cs" />
-    <Compile Include="StoneFace.cs" />
+    <Compile Include="Boss\SilverWitch.cs" />
+    <Compile Include="Boss\StoneFace.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

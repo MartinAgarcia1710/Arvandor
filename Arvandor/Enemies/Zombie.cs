@@ -14,6 +14,7 @@ namespace Arvandor
             this.LifePoints += 20;
             this.Exp = 40;
             this.Gold = 30;
+            this.Life = this.LifePoints;
         }
     }
 }

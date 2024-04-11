@@ -15,13 +15,16 @@ namespace Arvandor
         public Enemy() : base()
         {
             this.Level = 1;
-            this.Life = this.Level * 50;
-            this.LifePoints = this.Level * 10;
+            
+            this.LifePoints = this.Level * 50;
+            this.Life = this.LifePoints;
             this.ManaPoints = this.Level * 10;
+            this.Mana = this.ManaPoints;
             this.PhysicalDefense = this.Level * 10;
             this.PhysicalAttack = this.Level * 10;
             this.MagicAttack = this.Level * 10;
             this.MagicDefense = this.Level * 10;
+            this.Speed = this.Level * 10;
             
         }
         
