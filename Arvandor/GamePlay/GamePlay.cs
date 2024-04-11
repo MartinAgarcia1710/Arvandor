@@ -319,7 +319,7 @@ namespace Arvandor
                     this.shop.shopMenu(player);
                     break;
                 case 5:
-                    this.gs.saveGame(player);
+                        this.gs.checkExistDataBase(player);
                     break;
                 case 6:
                     return;
