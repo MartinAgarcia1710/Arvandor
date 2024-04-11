@@ -34,6 +34,8 @@ namespace Arvandor
                     case 2:
                         break;
                     case 3:
+                        game.continueGame();
+                        game.stageMenu();
                         break;
                     case 4:
                         System.Environment.Exit(0);

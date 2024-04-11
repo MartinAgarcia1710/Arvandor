@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace Arvandor
 {
+    
     internal class GamePlay
     {
+        private GameSaveLoad gs = new GameSaveLoad();
         private Shop shop = new Shop();
         private SpiritTypes player;
         private List<Enemy> enemyList = new List<Enemy>() { 
@@ -123,6 +125,11 @@ namespace Arvandor
             op = int.Parse(Console.ReadLine());
 
         }
+        public void continueGame()
+        {
+            this.player = this.gs.loadGame();
+        }
+
         public void battle()
         {
             int round = 1;
@@ -312,6 +319,7 @@ namespace Arvandor
                     this.shop.shopMenu(player);
                     break;
                 case 5:
+                    this.gs.saveGame(player);
                     break;
                 case 6:
                     return;

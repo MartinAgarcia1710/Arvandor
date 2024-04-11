@@ -9,11 +9,14 @@ namespace Arvandor
 {
     internal class SpiritTypes : Character
     {
+        public int ID { get; set; }
         public int Gold { get; set; }
         public int ExpPoints { get; set; }
         public int PointsToNextLevel { get; set; }
         public string SpiritClass { get; set; }
         public int bossCounter { get; set; }
+
+        public int KillCounter { get; set; }
         public SpiritTypes() 
         {
             this.bossCounter = 0;
