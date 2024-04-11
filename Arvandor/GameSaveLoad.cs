@@ -138,7 +138,7 @@ namespace Arvandor
             }
             
                 saveGame(player);
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("Saving...");
                 Thread.Sleep(3000);
                 Console.WriteLine("Succesful!");
