@@ -54,6 +54,10 @@ namespace Arvandor
                 return this.Level = level - 1;
             }
         }
+        public void restoreHP()
+        {
+            this.Life = this.LifePoints;
+        }
         
     }
 }

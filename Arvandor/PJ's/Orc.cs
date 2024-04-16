@@ -16,6 +16,7 @@ namespace Arvandor
             this.PhysicalDefense += 10;
             this.Life = this.LifePoints;
             this.Mana = this.ManaPoints;
+            this.abilityName = "Brute attack";
         }
         public override void stats()
         {

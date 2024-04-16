@@ -17,12 +17,13 @@ namespace Arvandor
         public int bossCounter { get; set; }
 
         public int KillCounter { get; set; }
+        public string abilityName {  get; set; }
         public SpiritTypes() 
         {
             this.bossCounter = 0;
             this.OwnItems = new List<Item>();
-            this.LifePoints = 3000;
-            this.ManaPoints = 20;
+            this.LifePoints = 500;
+            this.ManaPoints = 250;
             this.MagicDefense = 10;
             this.MagicAttack = 10;
             this.PhysicalAttack = 10;
@@ -102,9 +103,10 @@ namespace Arvandor
             this.ExpPoints += exp;
             if(this.ExpPoints > this.PointsToNextLevel)
             {
+                int rem = ExpPoints - PointsToNextLevel;
                 this.levelUp();
                 this.PointsToNextLevel = this.Level * 50;
-                this.ExpPoints = 0;
+                this.ExpPoints = rem;
             }
             this.Gold += gold;
 

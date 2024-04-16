@@ -45,10 +45,11 @@ namespace Arvandor
             Console.WriteLine("Arvandor is in danger. Evil forces came from another world to destroy everything.");
             Console.WriteLine("Many attempts to eradicate them by the king failed and there is no hope.");
             Console.WriteLine("An ancient order of warrior returned from the ashes by the invocation of an unknown old man");
+            Console.WriteLine("But... In the process they had changes, strange mutations");
             Console.WriteLine("-------------------------------------------------------------------------------------------");
             Console.WriteLine("This old man found an old book that talked about this order and what to call them");
             Console.WriteLine("the invocation brings to life the spirits of ancient warriors who take possession of living");
-            Console.WriteLine("beings...");
+            Console.WriteLine("beings. The combination of these spirits with new bodies produced hybrid people.");
             
         }
 
@@ -100,17 +101,19 @@ namespace Arvandor
             Console.WriteLine("facing up different random enemies and them you can choose a boss to fight.");
             Console.WriteLine("Don't forget to heal whith potions between battles.");
             Console.WriteLine("------------------------------------------------------------------------------------------");
-            Console.WriteLine("\t\tBattles");
+            Console.WriteLine("\n\t\tBattles");
             Console.WriteLine("The best way to grow up your level and skills. Battles are confrontations in which you must");
             Console.WriteLine("roll two dice. Some enemies could drop gold and items that can be useful to you in the future");
-            Console.WriteLine("In battles you can attack or (if you are in the correct level) use your special ability");
+            Console.WriteLine("In battles you can attack, take defence or use items to recover");
+            Console.WriteLine("When you grow to level 6 you can use the special ability. Each Spirit Type has a diferent one");
             Console.WriteLine("------------------------------------------------------------------------------------------");
-            Console.WriteLine("\t\tPotions");
-            Console.WriteLine("You can obtain them from enemies who drops items when you win a battle");
+            Console.WriteLine("\n\t\tPotions");
+            Console.WriteLine("You can obtain them from enemies who drops items when you win a battle or you can buy at shop");
             Console.WriteLine("There are two types of potions:");
             Console.WriteLine("Life Potion: restores 25 health points");
             Console.WriteLine("Mana Potion: restores 25 mana points");
-            Console.WriteLine("BECARFUL, YOU CAN ONLY USE POTIONS WHEN YOU ARE OUT OF BATTLE");
+            Console.WriteLine("\n\t\tShop");
+            Console.WriteLine("In the shop you can boy potions to restore Health and Mana with gold that enemies drop in battles");
             Console.WriteLine("------------------------------------------------------------------------------------------");
         }
         public void listItems()
@@ -127,7 +130,7 @@ namespace Arvandor
         }
         public void continueGame()
         {
-            this.player = this.gs.loadGame();
+            //this.player = this.gs.loadGame();
         }
 
         public void battle()
@@ -138,6 +141,7 @@ namespace Arvandor
             Enemy e1 = new Enemy();
             e1 = enemyList[e1.getRandomEnemy(enemyList.Count)];
             bool tu = b1.battleOrder(this.player, e1);
+            Console.Clear();
             head();
             enemyHead(e1);
             Console.ForegroundColor = ConsoleColor.Green;
@@ -171,6 +175,8 @@ namespace Arvandor
                     {
                         Console.WriteLine("Enemy die");
                         this.player.winBattle(e1.Exp, e1.Gold);
+                        //
+                        e1.restoreHP();
                         return;
                     }
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -203,6 +209,7 @@ namespace Arvandor
                     {
                         Console.WriteLine("Enemy die");
                         this.player.winBattle(e1.Exp, e1.Gold);
+                        e1.restoreHP();
                         return;
                     }
                 }
@@ -319,7 +326,7 @@ namespace Arvandor
                     this.shop.shopMenu(player);
                     break;
                 case 5:
-                        this.gs.checkExistDataBase(player);
+                        //this.gs.checkExistDataBase(player);
                     break;
                 case 6:
                     return;

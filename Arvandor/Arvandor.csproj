@@ -47,17 +47,14 @@
     <Compile Include="Boss\Andariel.cs" />
     <Compile Include="GamePlay\Battle.cs" />
     <Compile Include="GamePlay\Dice.cs" />
-    <Compile Include="EquippableItems\Armor.cs" />
-    <Compile Include="GameSaveLoad.cs" />
+    <Compile Include="GamePlay\GameSaveLoad.cs" />
     <Compile Include="MainClasses\Beings.cs" />
-    <Compile Include="Merchant.cs" />
     <Compile Include="PJ%27s\Character.cs" />
     <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="GamePlay\GamePlay.cs" />
     <Compile Include="Enemies\GiantSpider.cs" />
     <Compile Include="Enemies\Goblin.cs" />
     <Compile Include="Items\HealthPotion.cs" />
-    <Compile Include="PJ%27s\Humans.cs" />
     <Compile Include="MainClasses\Item.cs" />
     <Compile Include="PJ%27s\Orc.cs" />
     <Compile Include="Items\Potion.cs" />
@@ -67,7 +64,6 @@
     <Compile Include="Enemies\Rat.cs" />
     <Compile Include="PJ%27s\SpiritTypes.cs" />
     <Compile Include="PJ%27s\Vampire.cs" />
-    <Compile Include="EquippableItems\Weapons.cs" />
     <Compile Include="PJ%27s\Werewolf.cs" />
     <Compile Include="Enemies\Zombie.cs" />
     <Compile Include="GamePlay\Shop.cs" />

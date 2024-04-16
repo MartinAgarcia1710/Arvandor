@@ -72,7 +72,7 @@ namespace Arvandor
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Battle Menu");
             Console.ResetColor();
-            Console.WriteLine("1. Attack\n2.Items\n3. Defense\n");
+            Console.WriteLine("1. Attack\n2.Items\n3. Defense\n4. Special attack");
             op = int.Parse(Console.ReadLine());
 
             switch(op)
@@ -85,6 +85,8 @@ namespace Arvandor
                     break;
                 case 3:
                     defenceCommand(player, enemy, true);
+                    break;
+                case 4:
                     break;
             }
         }

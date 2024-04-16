@@ -16,7 +16,7 @@ namespace Arvandor
             this.MagicDefense += 5;
             this.Speed += 5;
             this.Life = this.LifePoints;
-            
+            this.abilityName = "Blood Sucker";
             this.Mana = this.ManaPoints;
         }
 

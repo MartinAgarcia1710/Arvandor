@@ -8,7 +8,7 @@ namespace Arvandor
 {
     internal class Shop
     {
-        public Merchant Merch { get; set; }
+        //public Merchant Merch { get; set; }
 
         public void shopMenu(SpiritTypes player)
         {

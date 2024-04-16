@@ -17,6 +17,7 @@ namespace Arvandor
             this.Speed += 5;
             this.Life = this.LifePoints;
             this.Mana = this.ManaPoints;
+            this.abilityName = "Hyper fang";
         }
         public override void stats()
         {
@@ -32,5 +33,6 @@ namespace Arvandor
             this.Speed += 5;
 
         }
+
     }
 }
