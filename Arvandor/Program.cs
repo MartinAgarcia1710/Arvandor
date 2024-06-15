@@ -13,10 +13,15 @@ namespace Arvandor
         {
             int op;
             GamePlay game = new GamePlay();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("░█████╗░ ██████╗░ ██╗░░░██╗ ░█████╗░ ███╗░░██╗ ██████╗░ ░█████╗░ ██████╗░\r\n██╔══██╗ ██╔══██╗ ██║░░░██║ ██╔══██╗ ████╗░██║ ██╔══██╗ ██╔══██╗ ██╔══██╗\r\n███████║ ██████╔╝ ╚██╗░██╔╝ ███████║ ██╔██╗██║ ██║░░██║ ██║░░██║ ██████╔╝\r\n██╔══██║ ██╔══██╗ ░╚████╔╝░ ██╔══██║ ██║╚████║ ██║░░██║ ██║░░██║ ██╔══██╗\r\n██║░░██║ ██║░░██║ ░░╚██╔╝░░ ██║░░██║ ██║░╚███║ ██████╔╝ ╚█████╔╝ ██║░░██║\r\n╚═╝░░╚═╝ ╚═╝░░╚═╝ ░░░╚═╝░░░ ╚═╝░░╚═╝ ╚═╝░░╚══╝ ╚═════╝░ ░╚════╝░ ╚═╝░░╚═╝");
+
+            
 
             Console.WriteLine("\t\tArvandor");
             Console.WriteLine("\t    Arshaalth's Quest");
 
+            Console.WriteLine("╔■═■══════════╗\r\n║   1. Play   ║\n║   2. Help   ║\n║   3. Load   ║\n║   4. Quit   ║\r\n╚══════════■═■╝");
             Console.WriteLine("1. Play\n2. Help\n3. Load\n4. Quit");
             op = int.Parse(Console.ReadLine());
             while(true)
