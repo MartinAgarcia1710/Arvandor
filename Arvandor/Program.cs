@@ -11,14 +11,20 @@ namespace Arvandor
     {
         static void Main(string[] args)
         {
+            Console.WindowHeight = 30;
+            Console.WindowWidth = 73;
             int op;
             GamePlay game = new GamePlay();
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Blue;
+            Console.CursorVisible = false;
+            
             Console.WriteLine("░█████╗░ ██████╗░ ██╗░░░██╗ ░█████╗░ ███╗░░██╗ ██████╗░ ░█████╗░ ██████╗░\r\n██╔══██╗ ██╔══██╗ ██║░░░██║ ██╔══██╗ ████╗░██║ ██╔══██╗ ██╔══██╗ ██╔══██╗\r\n███████║ ██████╔╝ ╚██╗░██╔╝ ███████║ ██╔██╗██║ ██║░░██║ ██║░░██║ ██████╔╝\r\n██╔══██║ ██╔══██╗ ░╚████╔╝░ ██╔══██║ ██║╚████║ ██║░░██║ ██║░░██║ ██╔══██╗\r\n██║░░██║ ██║░░██║ ░░╚██╔╝░░ ██║░░██║ ██║░╚███║ ██████╔╝ ╚█████╔╝ ██║░░██║\r\n╚═╝░░╚═╝ ╚═╝░░╚═╝ ░░░╚═╝░░░ ╚═╝░░╚═╝ ╚═╝░░╚══╝ ╚═════╝░ ░╚════╝░ ╚═╝░░╚═╝");
 
             
 
-            Console.WriteLine("\t\tArvandor");
+            
             Console.WriteLine("\t    Arshaalth's Quest");
 
             Console.WriteLine("╔■═■══════════╗\r\n║   1. Play   ║\n║   2. Help   ║\n║   3. Load   ║\n║   4. Quit   ║\r\n╚══════════■═■╝");

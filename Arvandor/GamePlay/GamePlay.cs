@@ -55,6 +55,7 @@ namespace Arvandor
 
         public void selectCharacter() 
         {
+            
             this.player = new SpiritTypes();
             int op;
             int gender;
